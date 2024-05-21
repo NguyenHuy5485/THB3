@@ -67,6 +67,22 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     msg ="Them du lieu thanh cong";
+                    edtmalop.setText("");
+                    edttenlop.setText("");
+                    edtsiso.setText("");
+
+                    mylist.clear();
+                    Cursor c = mydatabase.query("tbllop",null,null,null,null,null,null,null);
+                    c.moveToNext();
+                    String data = "";
+                    while (!c.isAfterLast())
+                    {
+                        data = c.getString(0) + "-"+c.getString(1) + "-"+c.getString(2);
+                        c.moveToNext();
+                        mylist.add(data);
+                    }
+                    c.close();
+                    myadapter.notifyDataSetChanged();
                 }
                 Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT).show();
             }
@@ -104,6 +120,22 @@ public class MainActivity extends AppCompatActivity {
                 else
                 {
                     msg = n + " ban ghi duoc sua";
+                    edtmalop.setText("");
+                    edttenlop.setText("");
+                    edtsiso.setText("");
+
+                    mylist.clear();
+                    Cursor c = mydatabase.query("tbllop",null,null,null,null,null,null,null);
+                    c.moveToNext();
+                    String data = "";
+                    while (!c.isAfterLast())
+                    {
+                        data = c.getString(0) + "-"+c.getString(1) + "-"+c.getString(2);
+                        c.moveToNext();
+                        mylist.add(data);
+                    }
+                    c.close();
+                    myadapter.notifyDataSetChanged();
                 }
                 Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT).show();
             }
